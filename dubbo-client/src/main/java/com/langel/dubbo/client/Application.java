@@ -14,6 +14,7 @@ import org.springframework.context.annotation.ImportResource;
 @EnableAutoConfiguration
 public class Application {
     public static void main(String[] args) {
+        System.setProperty("ccom.langel.dubbo.api.DubboDemoService", "dubbo://localhost:20881?helloWorldAsyncCallback.1.callback=true&helloWorldStreaming.1.callback=true");
         SpringApplication.run(Application.class,args);
     }
 }
