@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+    <dubbo:registry register="false"/>
+    <dubbo:application name="DubboDemoServer" />
+
+    <dubbo:protocol name="dubbo" port="20882"></dubbo:protocol>
+    <bean id="dubboDemoservice" class="com.langel.dubbo.server.DubboDemoServiceImpl"></bean>
+    <dubbo:service interface="com.langel.dubbo.api.DubboDemoService" ref="dubboDemoservice"  >
+        <dubbo:method name="hello">
+            <dubbo:argument index="1"  callback="true"/>
+        </dubbo:method>
+
+    </dubbo:service>
+</beans>
