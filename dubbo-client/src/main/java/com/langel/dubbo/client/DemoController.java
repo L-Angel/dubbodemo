@@ -25,12 +25,13 @@ public class DemoController {
     @GetMapping("/hello")
     public Object hello() {
 
-        dubboDemoService.hello(new HelloWorldRequest("Dubbo Demo Request"), new AsyncCallBack<HelloWordReponse>() {
+        /*dubboDemoService.hello(new HelloWorldRequest("Dubbo Demo Request"), new AsyncCallBack<HelloWordReponse>() {
             @Override
             public void onComplete(HelloWordReponse msg) {
                 System.out.println(msg.getMsg());
             }
-        });
+        });*/
+        dubboDemoService.hello(new HelloWorldRequest("Dubbo Demo Request"), new AsyncCallbackImpl());
         return "Success";
     }
 }
